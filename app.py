@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-# 🔥 toujours revenir à la connexion
+# toujours revenir à la connexion
 @app.route('/')
 def home():
     return redirect(url_for('login'))
@@ -23,7 +23,7 @@ def connect():
     else:
         return "❌ Identifiant ou mot de passe incorrect"
 
-# sécurité : bloquer accès direct dashboard
+# sécurité : empêcher accès direct au dashboard
 @app.route('/dashboard')
 def dashboard():
     return redirect(url_for('login'))
