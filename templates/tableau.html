@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bank App</title>
+
+<style>
+body {
+    margin:0;
+    font-family: -apple-system, Arial;
+    background:#f1f4f9;
+}
+
+/* HEADER */
+.header {
+    background:#1f3c88;
+    color:white;
+    padding:20px;
+    font-size:18px;
+}
+
+/* PAGES */
+.page { display:none; padding:15px; }
+.active { display:block; }
+
+/* CARDS */
+.card {
+    background:white;
+    padding:15px;
+    border-radius:15px;
+    margin-top:10px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* SOLDE */
+.balance {
+    font-size:26px;
+    font-weight:bold;
+}
+
+/* GRID */
+.grid {
+    display:flex;
+    gap:10px;
+    margin-top:10px;
+}
+
+.box {
+    flex:1;
+    background:white;
+    padding:15px;
+    border-radius:12px;
+    text-align:center;
+}
+
+/* HISTORIQUE */
+.tx {
+    display:flex;
+    justify-content:space-between;
+    margin-top:8px;
+}
+
+/* CARTE VISA */
+.visa {
+    background:linear-gradient(135deg,#2b5876,#4e4376);
+    color:white;
+}
+
+/* MENU BAS */
+.menu {
+    position:fixed;
+    bottom:0;
+    width:100%;
+    background:white;
+    display:flex;
+    justify-content:space-around;
+    padding:10px;
+    border-top:1px solid #ccc;
+}
+
+.menu div {
+    cursor:pointer;
+}
+
+/* INPUT */
+input {
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+button {
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:none;
+    background:#1f3c88;
+    color:white;
+    border-radius:10px;
+}button {
+    width:100%;
+    padding:12px;
+}
+
+.visa {
+    background: linear-gradient(135deg, #1f3c88, #4a69bd);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+
+    animation: apparition 0.5s ease;
+}
+
+@keyframes apparition {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.visa::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shine 3s infinite;
+}
+
+@keyframes shine {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}@keyframes shine {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* 🔥 COLLE ICI */
+.transaction {
+    display:flex;
+    justify-content:space-between;
+    padding:10px 0;
+    border-bottom:1px solid #eee;
+}
+
+.transaction small {
+    color:gray;
+    font-size:12px;
+}
+
+.positif {
+    color:green;
+    font-weight:bold;
+}
+
+.negatif {
+    color:red;
+    font-weight:bold;
+}
+
+/* FIN */
+
+</style>
+
+</style>
+
+
+</head>
+
+<body>
+
+<div class="header">
+Bonjour Nathalie Hodemon 
+</div>
+
+<!-- ACCUEIL -->
+<div id="accueil" class="page active">
+
+<div class="card">
+    <div class="balance" id="solde">1 950 000,67 €</div>
+    <div style="color:red;">Compte bloqué</div>
+</div>
+
+<div class="grid">
+    <div class="box" onclick="showPage('virement')">💸 Virement</div>
+    <div class="box" onclick="showPage('comptes')">💳 Comptes</div>
+</div>
+
+<div class="card">
+    <h3>Historique</h3>
+
+    <div class="card">
+    <h3>Historique</h3>
+
+    <div class="transaction">
+        <div>
+            <strong>Coiffure</strong><br>
+            <small>28 Mars 2026</small>
+        </div>
+        <div class="negatif">-28,99 €</div>
+    </div>
+
+    <div class="transaction">
+        <div>
+            <strong>Virement Pauline</strong><br>
+            <small>27 Mars 2026</small>
+        </div>
+        <div class="positif">+50 000 €</div>
+    </div>
+
+    <div class="transaction">
+        <div>
+            <strong>Virement Joseph</strong><br>
+            <small>26 Mars 2026</small>
+        </div>
+        <div class="positif">+38 000 €</div>
+    </div>
+
+</div>
+        
+        
+        
+ 
+</div>
+
+</div>
+
+<!-- COMPTES -->
+<div id="comptes" class="page">
+
+<div class="card">
+    <h2>Nathalie Hodemon</h2>
+    <p>Solde total :</p>
+    <h1>1 950 000,67 €</h1>
+</div>
+
+<div class="grid">
+    <div class="box">Épargne</div>
+    <div class="box">Crédit</div>
+    <div class="box">Assurance</div>
+</div>
+
+</div>
+
+<!-- VIREMENT -->
+</div>
+
+<!-- CARTE -->
+<div id="carte" class="page">
+
+    <div class="card visa">
+        <div>CRÉDIT AGRICOLE</div>
+        <div id="iban">FR76 1234 5678 9012 7890 123s</div>
+
+        <div style="margin-top:10px;">
+            <b id="soldeCarte">1 950 000 €</b>
+        </div>
+
+        <div style="margin-top:10px;display:flex;justify-content:space-between;">
+            <span>Nathalie Hodemon</span>
+            <span>VISA</span>
+        </div>
+    </div>
+
+</div>
+
+<div id="virement" class="page">
+
+<div class="card visa">
+    <div>CRÉDIT AGRICOLE</div>
+    <div id="iban">FR76 0000 0000 0000</div>
+    <div>Nathalie Hodemon</div>
+    <div>VISA</div>
+</div>
+
+<input id="nom" placeholder="IBAN ">
+<input id="montant" type="number" placeholder="Montant">
+
+<button onclick="envoyer()">Envoyer</button>
+
+</div>
+
+<!-- MENU -->
+<div id="menuPage" class="page">
+
+<div class="card">
+    <h3>Profil</h3>
+    <p>Nom : Nathalie Hodemon</p>
+    <p>Compte : Principal</p>
+    <p>Email : nathalie@email.com</p>
+</div>
+
+</div>
+
+<!-- MENU BAS -->
+<div class="menu">
+    <div onclick="showPage('accueil')">Accueil</div>
+    <div onclick="showPage('comptes')">Comptes</div>
+    <div onclick="showPage('virement')">Virement</div>
+    <div onclick="showPage('menuPage')">Menu</div>
+</div>
+
+<script>
+
+let solde = 1950000.67;
+
+/* navigation */
+function showPage(page) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(page).classList.add('active');
+}
+
+/* mettre à jour solde */
+function updateSolde() {
+    document.getElementById("solde").innerText =
+        solde.toLocaleString() + " €";
+}
+
+/* envoyer virement */
+function envoyer() {
+    let nom = document.getElementById("nom").value;
+    let montant = parseFloat(document.getElementById("montant").value);
+
+    if (!nom || !montant) {
+        alert("Remplis les champs");
+        return;
+    }
+
+    solde -= montant;
+
+    updateSolde();
+
+    let div = document.createElement("div");
+    div.className = "tx";
+    div.innerHTML = "<span>Virement " + nom + "</span><span>-" + montant + " €</span>";
+
+    document.getElementById("transactions").prepend(div);
+
+    alert("Virement envoyé !");
+}
+
+/* IBAN dynamique */
+setInterval(() => {
+    document.getElementById("iban").innerText =
+        "FR76 " + Math.floor(Math.random()*10000) + " " + Math.floor(Math.random()*10000);
+}, 3000);
+
+</script>
+
+</body>
+</html>
