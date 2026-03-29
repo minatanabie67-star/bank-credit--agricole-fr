@@ -26,4 +26,4 @@ def connect():
 # sécurité : empêcher accès direct au dashboard
 @app.route('/dashboard')
 def dashboard():
-    return redirect(url_for('login'))
+    return redirect(url_for('tableau.hmtl'))
