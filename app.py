@@ -5,7 +5,7 @@ app = Flask(__name__)
 # toujours revenir à la connexion
 @app.route('/')
 def home():
-    return redirect(url_for('login.html'))
+    return redirect(url_for('login'))
 
 # page connexion
 @app.route('/login')
