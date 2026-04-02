@@ -19,11 +19,17 @@ def connect():
     password = request.form.get('motdepasse')
 
     if user == "CA84739261" and password == "1615":
-        return render_template('dashboard.html')
+    return redirect(url_for('dashboard'))
     else:
         return "❌ Identifiant ou mot de passe incorrect"
 
 # sécurité : empêcher accès direct au dashboard
-@app.route('/dashboard')
+
+
+    @app.route('/dashboard')
 def dashboard():
-    return redirect(url_for('dashboard.html'))
+    return render_template(
+        'dashboard.html',
+        nom="nathalie hodemon",
+        solde="2.000.000,00"
+    )
