@@ -234,7 +234,9 @@ body {
 <!-- ACTIONS -->
 <div class="actions">
     <div class="action retrait">⬇<br>Retraits</div>
-    <div class="action virement">➡<br>Virements</div>
+    <div class="action virement" onclick="document.getElementById('virementForm').style.display='block'">
+    💸<br>Virements
+</div>
     <div class="action cartes">💳<br>Mes cartes</div>
 </div>
 
@@ -286,5 +288,24 @@ body {
     <div>⚙️<br>Profil</div>
 </div>
 
+<div id="virementForm" style="display:none; margin-top:20px; background:#fff; padding:15px; border-radius:10px;">
+    
+    <h3>💸 Virement</h3>
+
+    <input type="text" placeholder="IBAN" id="iban"><br><br>
+    <input type="number" placeholder="Montant (€)" id="montant"><br><br>
+
+    <button onclick="envoyerVirement()">Envoyer</button>
+
+</div>
+
+ <script>
+function envoyerVirement() {
+    let iban = document.getElementById("iban").value;
+    let montant = document.getElementById("montant").value;
+
+    alert("Virement envoyé 💸\nIBAN: " + iban + "\nMontant: " + montant + "€");
+}
+</script>
 </body>
 </html>
