@@ -28,7 +28,7 @@ def connect():
 def dashboard():
     return render_template(
         'dashboard.html',
-        nom="LAMY JOSEPH",
+        nom="CHANTAL CAUMONT",
         solde="2.000.000,00"
     )
 
