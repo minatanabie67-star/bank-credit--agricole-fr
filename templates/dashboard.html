@@ -233,7 +233,7 @@ body {
 
 <!-- ACTIONS -->
 <div class="actions">
-    <div class="action retrait">⬇<br>Retraits</div>
+    <div class="action retrait" onclick="ouvrirRetrait()">
     <div class="action virement" onclick="ouvrirVirement()">
     💸<br>Virements
 </div>
@@ -345,13 +345,50 @@ function envoyerVirement() {
 
 
 
- <script>
-function envoyerVirement() {
-    let iban = document.getElementById("iban").value;
-    let montant = document.getElementById("montant").value;
+ <div id="pageRetrait" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:white;
+z-index:9999;
+padding:20px;
+">
 
-    alert("Virement envoyé 💸\nIBAN: " + iban + "\nMontant: " + montant + "€");
+    <h2>📥 Retrait</h2>
+
+    <input type="number" placeholder="Montant (€)" id="montantRetrait" style="width:100%;padding:10px;"><br><br>
+
+    <button onclick="envoyerRetrait()" style="padding:10px 20px;background:green;color:white;border:none;">
+        Retirer
+    </button>
+
+    <br><br>
+
+    <button onclick="fermerRetrait()">Retour</button>
+
+</div>
+
+<script>
+function ouvrirRetrait() {
+    document.getElementById("pageRetrait").style.display = "block";
+}
+
+function fermerRetrait() {
+    document.getElementById("pageRetrait").style.display = "none";
+}
+
+function envoyerRetrait() {
+    let montant = document.getElementById("montantRetrait").value;
+    alert("Retrait effectué : " + montant + "€");
 }
 </script>
+
+
+    
+
+    
 </body>
 </html>
