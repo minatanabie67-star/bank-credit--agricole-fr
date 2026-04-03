@@ -241,9 +241,11 @@ body {
         💸<br>Virements
     </div>
 
-    <div class="action cartes">
-        💳<br>Mes cartes
-    </div>
+    <div class="action cartes" onclick="ouvrirCartes()">
+    💳<br>Mes cartes
+</div>
+    
+    
 
 </div>
 
@@ -473,7 +475,21 @@ function envoyerRetrait() {
     alert("Retrait effectué : " + montant + "€");
 }
 </script>
+<script>
+function ouvrirCartes() {
+    document.getElementById("pageCartes").style.display = "block";
+}
 
+function fermerCartes() {
+    document.getElementById("pageCartes").style.display = "none";
+}
+
+function copierIBAN() {
+    let iban = "FR761234600078910012345678";
+    navigator.clipboard.writeText(iban);
+    alert("IBAN copié !");
+}
+</script>
 
     
 
